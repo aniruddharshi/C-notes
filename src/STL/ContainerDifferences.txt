@@ -1,0 +1,64 @@
+
+1. Array (C-style Array)
+Definition: A static, fixed-size array that holds elements of the same type.
+Memory Allocation: Allocated at compile time with a fixed size.
+Access Time: O(1) for element access via an index.
+Insertion/Deletion: Not supported, as the size is fixed. You cannot add or remove elements once the array is created.
+Traversal: Sequential, only supports indexing.
+Usage: When the size of the container is known at compile time and does not need to change during execution.
+Example: int arr[5] = {1, 2, 3, 4, 5};
+
+2. Vector
+Definition: A dynamic array that can grow or shrink in size at runtime.
+Memory Allocation: Elements are stored contiguously in memory, and the vector resizes automatically when the capacity is reached (usually doubling).
+Access Time: O(1) for random access via an index.
+Insertion/Deletion:
+O(1) for insertion at the end (amortized).
+O(n) for insertion/deletion at positions other than the end (requires shifting elements).
+Traversal: Supports sequential traversal and random access via indices.
+Usage: Ideal for scenarios where the container’s size can change and you need fast random access to elements.
+Example: std::vector<int> vec = {1, 2, 3, 4, 5};
+        vec.push_back(6);  // Adds 6 to the end
+
+3. List (Doubly Linked List)
+Definition: A doubly linked list where each element is connected to both its previous and next elements.
+Memory Allocation: Elements are stored non-contiguously in nodes, each node holding data and pointers to the next and previous elements.
+Access Time: O(n) for element access since there is no random access.
+Insertion/Deletion:
+O(1) for insertion or deletion at the beginning or end of the list.
+O(n) for insertion or deletion at a specific position (requires traversal).
+Traversal: Bidirectional, allowing you to traverse both forward and backward.
+Usage: Useful when frequent insertions and deletions are needed (especially in the middle) and random access is not required.
+Example: std::list<int> lst = {1, 2, 3, 4, 5};
+lst.push_back(6);  // Adds 6 to the end
+
+
+
+4. Forward List (Singly Linked List)
+Definition: A singly linked list where each node contains a pointer only to the next node (no pointer to the previous node).
+Memory Allocation: Similar to list, elements are stored in non-contiguous memory in nodes, but only one pointer (to the next element) is used.
+Access Time: O(n) for element access, with no random access.
+Insertion/Deletion:
+O(1) for insertion or deletion at the beginning of the list.
+O(n) for insertion or deletion at other positions (requires traversal).
+Traversal: Unidirectional, you can only traverse from the first element to the last.
+Usage: Useful when memory efficiency is important and you only need forward traversal (e.g., stack or queue operations).
+Example: std::forward_list<int> fwd_lst = {1, 2, 3, 4, 5};
+fwd_lst.push_front(0);  // Adds 0 to the front
+
+
+5. Deque (Double-Ended Queue)
+Definition: A sequence container that allows fast insertion or deletion at both ends (front and back).
+Memory Allocation: It uses a dynamic array internally (with multiple blocks), so it’s not contiguous like a vector. This structure allows for efficient insertion and deletion from both ends.
+Access Time: O(1) for element access via indices (random access).
+Insertion/Deletion:
+O(1) for insertion or deletion at both the front and back.
+O(n) for insertion or deletion at other positions (though generally, the front and back operations are most efficient).
+Traversal: Supports both sequential and random access.
+Usage: Ideal for use cases where you need efficient insertion and deletion at both ends of the container.
+Example: std::deque<int> deq = {1, 2, 3, 4, 5};
+deq.push_front(0);  // Adds 0 to the front
+deq.push_back(6);   // Adds 6 to the back
+
+
+Summary Table:
